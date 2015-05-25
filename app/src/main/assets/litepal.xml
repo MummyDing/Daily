@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="DailyPad"></dbname>
+    <version value="5"></version>
+    <list>
+        <mapping class="com.example.daily.User"></mapping>
+        <mapping class="com.example.daily.Daily"></mapping>
+    </list>
+</litepal>

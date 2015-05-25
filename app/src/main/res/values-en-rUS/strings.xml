@@ -1,0 +1,41 @@
+<resources>
+    <string name="daily_Label">Daily</string>
+    <string name="delete_Label">Delete</string>
+    <string name="cancel_Label">Cancel</string>
+    <string name="confirm_Label">Yes</string>
+    <string name="register_Label">Register</string>
+    <string name="login_Label">Login</string>
+    <string name="title_Label">Title</string>
+    <string name="back_Label">Back</string>
+    <string name="edit_Label">Edit</string>
+    <string name="detail_Label">Detail</string>
+    <string name="done_Label">Done</string>
+    <string name="rename_Label">Rename</string>
+    <string name="save_Label">Yes</string>
+    <string name="insave_Label">No</string>
+    <string name="modify_time_Label">Modify Time: </string>
+    <string name="remember_Label">Remember Password</string>
+
+    <string name="write_it_Info">Write It Down!!</string>
+    <string name="login_successfully_Info">Login Successfully,loading </string>
+    <string name="sign_successfully_Info">Sign Successfully</string>
+    <string name="input_title_Info">Please Input Title</string>
+    <string name="input_content_Info">Record Your Life</string>
+    <string name="input_username_Info">Input Username</string>
+    <string name="input_password_Info">Input Password</string>
+
+
+    <string name="info_incomplete_Warn">Info Incomplete</string>
+    <string name="cannot_rename_Warn">WRONG,you already got the Daily: </string>
+    <string name="delete_confirm_Warn">Are you sure to delete it</string>
+    <string name="savechange_confrim_Warn">Do you want to save the changes?</string>
+    <string name="register_rename_Warn">this name was used</string>
+
+    <string name="wrong_password_Error">Wrong Password</string>
+    <string name="wrong_username_Error">Wrong Username</string>
+    <string name="sign_fail_Error">Register Fail</string>
+
+    <string name="title_activity_sign">Register</string>
+    <string name="title_activity_atylist">List</string>
+    <string name="title_activity_atyedit">Edit</string>
+</resources>
