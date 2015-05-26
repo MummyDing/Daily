@@ -23,12 +23,14 @@
     <string name="input_content_Info">写点什么吧~</string>
     <string name="input_username_Info">请输入用户名</string>
     <string name="input_password_Info">请输入用户密码</string>
+    <string name="rename_Info">是否保存为</string>
 
     <string name="info_incomplete_Warn">信息输入不完整</string>
     <string name="cannot_rename_Warn">不能修改,你已包含日记: </string>
     <string name="delete_confirm_Warn">确定要删除</string>
     <string name="savechange_confrim_Warn">是否保存更改?</string>
     <string name="register_rename_Warn">改用户名已被注册</string>
+    <string name="rename_Warn">已经包含</string>
 
     <string name="wrong_password_Error">密码错误</string>
     <string name="wrong_username_Error">用户名错误</string>

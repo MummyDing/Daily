@@ -52,6 +52,8 @@ public class MainActivity extends Activity implements OnClickListener,OnCheckedC
     }
 
     private void compeletePassword(){
+        if(rememberedData.getString("USER_NAME","")!=""&&rememberedData.getString("PASSWORD","")!="")
+            isRememberData.setChecked(true);
         if(rememberedData.getBoolean("ISCHECK",false)){
             usernameBox.setText(rememberedData.getString("USER_NAME",""));
             passwordBox.setText(rememberedData.getString("PASSWORD",""));

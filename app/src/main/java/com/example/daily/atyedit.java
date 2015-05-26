@@ -25,6 +25,7 @@ public class atyedit extends Activity implements OnClickListener{
     EditText content_box,title;
     TextView  modify_date,title_edit_Btn,title_back_Btn;
     Daily daily;
+    AlertDialog.Builder reannameDiag,exitADB;
 
     int user_id;
     @Override
@@ -87,30 +88,68 @@ public class atyedit extends Activity implements OnClickListener{
     private List<Daily> findByTitle(String tmptitle){
         return DataSupport.select("id","title","user_id").where("title = ? and user_id = ?",tmptitle,Integer.toString(user_id)).find(Daily.class);
     }
+    boolean flag = true;
 
     /**
-     * rename (Update the Title)
-     * @param tmpTitle
+     * show a Rename Warning Dialog.
+     * if user want to Change to this name,return true; otherwise,return false
+     * @param tmpTilte
+     * @param title
+     * @return
      */
-    private void updateTitle(String tmpTitle){
+    private boolean renameDialog(String tmpTilte,String title){
+        flag = true;
+        reannameDiag = new AlertDialog.Builder(atyedit.this);
+        reannameDiag.setTitle(getString(R.string.rename_Warn) + "\"" + tmpTilte + "\"" + "\n" + getString(R.string.rename_Info) + "\"" + title + "\"" + "?");
+        reannameDiag.setPositiveButton(R.string.cancel_Label, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                flag = false;
+                backToList();
+            }
+        });
+        reannameDiag.setNeutralButton(R.string.confirm_Label, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                backToList();
+            }
+        });
+        return flag;
+    }
+    /**
+     * update the title , if the title was be used,return false,otherwise,
+     * return true
+     * rename (Update the Title)
+     * @param
+     */
+    private boolean updateTitle(String tmpTitle){
         int titleNum = 0;
         while (true){
-            if(titleNum == 0 && findByTitle(tmpTitle).isEmpty() == false)break;
-            else if(titleNum != 0 && findByTitle(tmpTitle+Integer.toString(titleNum)).isEmpty() == false) break;
+            if(titleNum == 0 && findByTitle(tmpTitle).isEmpty() == true)break;
+            else if(titleNum != 0 && findByTitle(tmpTitle+Integer.toString(titleNum)).isEmpty() == true) break;
             titleNum++;
         }
+
         Daily updateDaily = new Daily();
         if(titleNum == 0)
-        updateDaily.setTitle(tmpTitle);
-        else updateDaily.setTitle(tmpTitle + Integer.toString(titleNum));
+            updateDaily.setTitle(tmpTitle);
+        else {
+            if(renameDialog(tmpTitle,tmpTitle + Integer.toString(titleNum))) {
+                updateDaily.setTitle(tmpTitle + Integer.toString(titleNum));
+                updateDaily.update(daily.getId());
+                return false;
+            }
+            else return true;
+        }
         updateDaily.update(daily.getId());
+        return true;
     }
 
     /**
      * exit Dialog : show the "Save" MSG
      */
     private void exitDialog(){
-        AlertDialog.Builder exitADB = new AlertDialog.Builder(atyedit.this);
+        exitADB = new AlertDialog.Builder(atyedit.this);
         exitADB.setTitle(R.string.savechange_confrim_Warn);
         exitADB.setPositiveButton(R.string.cancel_Label,new DialogInterface.OnClickListener() {
             @Override
@@ -120,11 +159,18 @@ public class atyedit extends Activity implements OnClickListener{
         exitADB.setNeutralButton(R.string.save_Label,new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                updateTitle(title.getText().toString());
-                Daily updateDaily = new Daily();
-                updateDaily.setContent(content_box.getText().toString());
-                updateDaily.setDate(new Date());
-                updateDaily.update(daily.getId());
+                if(isTitleChanged()){
+                    if(updateTitle(title.getText().toString())==false){
+                        reannameDiag.show();
+                        return;
+                    }
+                }
+                if(isContentChanged()){
+                    Daily updateDaily = new Daily();
+                    updateDaily.setContent(content_box.getText().toString());
+                    updateDaily.setDate(new Date());
+                    updateDaily.update(daily.getId());
+                }
                 backToList();
             }
         });
@@ -134,19 +180,29 @@ public class atyedit extends Activity implements OnClickListener{
                 backToList();
 
             }
-        });
+        }).create();
         exitADB.show();
     }
 
+    private boolean isTitleChanged(){
+        if(daily.getTitle().equals(title.getText().toString()))
+            return false;
+        return true;
+    }
+    private boolean isContentChanged(){
+        if(daily.getContent().equals(content_box.getText().toString()))
+            return false;
+        return true;
+    }
     /**
      * check the editBox changed or not
      * @return
      */
     private boolean isTextChanged(){
-        if(daily.getContent().equals(content_box.getText().toString())&&daily.getTitle().equals(title.getText().toString())){
-            return false;
+        if(isTitleChanged()||isContentChanged()){
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**

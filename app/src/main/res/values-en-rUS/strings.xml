@@ -23,13 +23,14 @@
     <string name="input_content_Info">Record Your Life</string>
     <string name="input_username_Info">Input Username</string>
     <string name="input_password_Info">Input Password</string>
-
+    <string name="rename_Info">Do you want to save as</string>
 
     <string name="info_incomplete_Warn">Info Incomplete</string>
     <string name="cannot_rename_Warn">WRONG,you already got the Daily: </string>
     <string name="delete_confirm_Warn">Are you sure to delete it</string>
     <string name="savechange_confrim_Warn">Do you want to save the changes?</string>
-    <string name="register_rename_Warn">this name was used</string>
+    <string name="register_rename_Warn">this name was be used</string>
+    <string name="rename_Warn">There is already a daily named </string>
 
     <string name="wrong_password_Error">Wrong Password</string>
     <string name="wrong_username_Error">Wrong Username</string>
