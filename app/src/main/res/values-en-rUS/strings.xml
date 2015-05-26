@@ -15,6 +15,7 @@
     <string name="insave_Label">No</string>
     <string name="modify_time_Label">Modify Time: </string>
     <string name="remember_Label">Remember Password</string>
+    <string name="show_password_Label">Show Password</string>
 
     <string name="write_it_Info">Write It Down!!</string>
     <string name="login_successfully_Info">Login Successfully,loading </string>
@@ -22,7 +23,9 @@
     <string name="input_title_Info">Please Input Title</string>
     <string name="input_content_Info">Record Your Life</string>
     <string name="input_username_Info">Input Username</string>
-    <string name="input_password_Info">Input Password</string>
+    <string name="input_password_Info">Password(Digit|Letter)</string>
+    <string name="confirm_password_Warn">The Passwords were not identical.</string>
+    <string name="confirm_password_Info">Confirm Password</string>
     <string name="rename_Info">Do you want to save as</string>
 
     <string name="info_incomplete_Warn">Info Incomplete</string>

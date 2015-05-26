@@ -14,16 +14,6 @@
         android:inputType="textPassword"
         android:singleLine="true"
         />
-    <!--<ImageView
-        android:id="@+id/password_icon"
-        android:layout_width="20dip"
-        android:layout_height="20dip"
-        android:layout_toLeftOf="@+id/password_box"
-        android:layout_alignBottom="@+id/password_box"
-        android:background="@mipmap/password"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        />-->
     <LinearLayout
         android:focusable="true" android:focusableInTouchMode="true"
         android:layout_width="0px" android:layout_height="0px"/>
@@ -38,16 +28,6 @@
         >
         <requestFocus />
         </EditText>
-   <!-- <ImageView
-        android:id="@+id/user_icon"
-        android:layout_width="20dip"
-        android:layout_height="20dip"
-        android:layout_alignLeft="@+id/password_icon"
-       android:layout_alignBottom="@+id/username_box"
-        android:background="@mipmap/user"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        />-->
     <CheckBox
         android:id="@+id/remeber_cb"
         android:layout_width="wrap_content"

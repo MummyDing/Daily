@@ -15,6 +15,7 @@
     <string name="rename_Label">重命名</string>
     <string name="remember_Label">记住密码</string>
     <string name="modify_time_Label">修改时间：</string>
+    <string name="show_password_Label">显示密码</string>
 
     <string name="write_it_Info">可以开始写了！！</string>
     <string name="login_successfully_Info">成功登陆，正在加载</string>
@@ -22,7 +23,8 @@
     <string name="input_title_Info">请输入标题</string>
     <string name="input_content_Info">写点什么吧~</string>
     <string name="input_username_Info">请输入用户名</string>
-    <string name="input_password_Info">请输入用户密码</string>
+    <string name="input_password_Info">请输入密码(字母或数字)</string>
+    <string name="confirm_password_Info">请确认密码</string>
     <string name="rename_Info">是否保存为</string>
 
     <string name="info_incomplete_Warn">信息输入不完整</string>
@@ -30,6 +32,7 @@
     <string name="delete_confirm_Warn">确定要删除</string>
     <string name="savechange_confrim_Warn">是否保存更改?</string>
     <string name="register_rename_Warn">改用户名已被注册</string>
+    <string name="confirm_password_Warn">两次输入密码不一致</string>
     <string name="rename_Warn">已经包含</string>
 
     <string name="wrong_password_Error">密码错误</string>

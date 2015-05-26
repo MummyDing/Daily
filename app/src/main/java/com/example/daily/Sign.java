@@ -3,22 +3,28 @@ package com.example.daily;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.List;
 
 
-public class Sign extends Activity implements OnClickListener{
+public class Sign extends Activity implements OnClickListener,OnCheckedChangeListener{
 
-    EditText usernameBox,passwordBox;
+    EditText usernameBox,passwordBox,confirmPasswordBox;
     Button signBtn;
-    String username,password;
+    CheckBox ShowPassword;
+    String username,password,confirmPassword;
     List<User> user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +35,24 @@ public class Sign extends Activity implements OnClickListener{
     private void findView(){
         usernameBox = (EditText) findViewById(R.id.username_box);
         passwordBox = (EditText) findViewById(R.id.password_box);
+        confirmPasswordBox = (EditText) findViewById(R.id.confirm_password_box);
+        ShowPassword = (CheckBox) findViewById(R.id.show_password);
         signBtn = (Button) findViewById(R.id.sign_btn);
-        signBtn.setAlpha(200);
         signBtn.setOnClickListener(this);
+        ShowPassword.setOnCheckedChangeListener(this);
     }
 
     private boolean getUserinfo(){
         try{
             username = usernameBox.getText().toString();
             password = passwordBox.getText().toString();
-            if(username.equals("")|| password.equals("")){
+            confirmPassword =confirmPasswordBox.getText().toString();
+            if(username.equals("")|| password.equals("")||confirmPassword.equals("")){
                 throw new Exception();
+            }
+            else if(password.equals(confirmPassword) == false){
+                Toast.makeText(Sign.this,R.string.confirm_password_Warn,Toast.LENGTH_SHORT).show();
+                return false;
             }
         }catch (Exception ex){
             Toast.makeText(Sign.this, R.string.info_incomplete_Warn, Toast.LENGTH_LONG).show();
@@ -86,6 +99,18 @@ public class Sign extends Activity implements OnClickListener{
                     Toast.makeText(Sign.this,R.string.sign_fail_Error,Toast.LENGTH_SHORT).show();
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        if(ShowPassword.isChecked()){
+            passwordBox.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            confirmPasswordBox.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        }
+        else {
+            passwordBox.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            confirmPasswordBox.setTransformationMethod(PasswordTransformationMethod.getInstance());
         }
     }
 }

@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements OnClickListener,OnCheckedC
         rememberedData = getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
         loginBtn.setOnClickListener(this);
         signBtn.setOnClickListener(this);
+
         isRememberData.setOnCheckedChangeListener(this);
     }
 

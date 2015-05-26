@@ -11,18 +11,10 @@
         android:layout_centerHorizontal="true"
         android:hint="@string/input_password_Info"
         android:inputType="textPassword"
+        android:singleLine="true"
+        android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:textColor="#FFFFFF"
         />
-   <!-- <ImageView
-        android:id="@+id/password_icon"
-        android:layout_width="20dip"
-        android:layout_height="20dip"
-        android:layout_toLeftOf="@+id/password_box"
-        android:layout_alignBottom="@+id/password_box"
-        android:background="@mipmap/password"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        />-->
     <LinearLayout
         android:focusable="true" android:focusableInTouchMode="true"
         android:layout_width="0px" android:layout_height="0px"/>
@@ -33,26 +25,39 @@
         android:layout_above="@+id/password_box"
         android:layout_alignLeft="@+id/password_box"
         android:hint="@string/input_username_Info"
+        android:inputType="textPassword"
+        android:singleLine="true"
         android:textColor="#FFFFFF"
         >
         <requestFocus />
        </EditText>
-   <!-- <ImageView
-        android:id="@+id/user_icon"
-        android:layout_width="20dip"
-        android:layout_height="20dip"
-        android:layout_alignLeft="@+id/password_icon"
-        android:layout_alignBottom="@+id/username_box"
-        android:background="@mipmap/user"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        />-->
 
+    <EditText
+        android:id="@+id/confirm_password_box"
+        android:layout_width="280dip"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/password_box"
+        android:hint="@string/confirm_password_Info"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:textColor="#FFFFFF"
+        />
+    <CheckBox
+        android:id="@+id/show_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/confirm_password_box"
+        android:layout_below="@+id/confirm_password_box"
+        android:hint="@string/show_password_Label"
+        />
     <Button
         android:id="@+id/sign_btn"
         android:layout_width="280dip"
         android:layout_height="50dip"
-        android:layout_below="@+id/password_box"
+        android:layout_below="@+id/show_password"
         android:layout_marginTop="20dip"
         android:layout_centerHorizontal="true"
         android:text="@string/register_Label"
