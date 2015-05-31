@@ -1,0 +1,8 @@
+User  : 
+username  text
+password   text
+dailylist 
+Daily
+title      text
+content  text
+date   Dat

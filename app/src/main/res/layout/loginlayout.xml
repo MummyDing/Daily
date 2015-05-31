@@ -25,7 +25,6 @@
         android:layout_above="@+id/password_box"
         android:layout_alignLeft="@+id/password_box"
         android:hint="@string/input_username_Info"
-        android:inputType="textPassword"
         android:singleLine="true"
         android:textColor="#FFFFFF"
         >
